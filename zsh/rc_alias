@@ -1,0 +1,8 @@
+alias n="nvim"
+
+alias m="mkdir"
+alias l="ls -lah"
+alias la="ls -A"
+alias ..="cd ../"
+alias ...="cd ../../"
+alias ....="cd ../../../../"

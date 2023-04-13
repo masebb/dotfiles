@@ -1,0 +1,3 @@
+**/node_modules
+.config/htop/htoprc
+.config/memos.json
