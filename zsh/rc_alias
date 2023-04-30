@@ -1,8 +1,8 @@
-alias n="nvim"
-
 alias m="mkdir"
-alias l="ls -lah"
+alias l="ls -la"
 alias la="ls -A"
 alias ..="cd ../"
 alias ...="cd ../../"
 alias ....="cd ../../../../"
+lg=lazygit
+m=mkdir

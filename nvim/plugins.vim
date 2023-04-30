@@ -4,7 +4,38 @@ call plug#begin()
   Plug 'nvim-tree/nvim-web-devicons'
   Plug 'nvim-lualine/lualine.nvim'
   Plug 'cohama/lexima.vim'
+  Plug 'goolord/alpha-nvim'
+  Plug 'akinsho/toggleterm.nvim'
+  Plug 'lambdalisue/fern.vim'
+  Plug 'lambdalisue/nerdfont.vim'
+  Plug 'lambdalisue/glyph-palette.vim'
+  Plug 'lambdalisue/fern-renderer-nerdfont.vim'
+  Plug 'lambdalisue/fern-git-status.vim'
+  Plug 'lukas-reineke/indent-blankline.nvim'
 call plug#end()
+
+" Fern setting
+let g:fern#default_hidden=1
+let g:fern#renderer = "nerdfont"
+
+" alpha-nvim setup
+lua require'alpha'.setup(require'alpha.themes.dashboard'.config)
+
+" toggleterm setup
+lua << END
+require("toggleterm").setup()
+
+local Terminal  = require('toggleterm.terminal').Terminal
+local lazygit = Terminal:new({ cmd = "lazygit", hidden = true, direction = "float" })
+
+function _lazygit_toggle()
+  lazygit:toggle()
+end
+
+vim.api.nvim_set_keymap("n", "<space>g", "<cmd>lua _lazygit_toggle()<CR>", {noremap = true, silent = true})
+
+END
+
 " nvim-lualine setup
 lua << END
 -- Bubbles config for lualine

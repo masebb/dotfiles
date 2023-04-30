@@ -1,3 +1,8 @@
 **/node_modules
-.config/htop/htoprc
-.config/memos.json
+.config/**
+!.config/coc
+!.config/coc/extensions/package.json
+!.config/nvim
+!.config/nvim/*
+!.config/sheldon
+!.config/sheldon/*

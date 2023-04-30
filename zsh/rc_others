@@ -12,3 +12,18 @@ export SAVEHIST=100000
 
 # 重複を記録しない
 setopt hist_ignore_dups
+
+#==その他==#
+# gitでgpgを使うための設定
+export GPG_TTY=$(tty)
+
+lg(){
+  export LAZYGIT_NEW_DIR_FILE=~/.lazygit/newdir
+
+  lazygit "$@"
+
+  if [ -f $LAZYGIT_NEW_DIR_FILE ]; then
+    cd "$(cat $LAZYGIT_NEW_DIR_FILE)"
+    rm -f $LAZYGIT_NEW_DIR_FILE > /dev/null
+  fi
+}
