@@ -1,6 +1,6 @@
 #!/bin/bash
 #ツールインストール
-apt install -y tree docker.io sipcalc
+apt install -y tree docker.io docker-compose sipcalc jq
 # hugo
 wget https://github.com/gohugoio/hugo/releases/download/v0.111.3/hugo_extended_0.111.3_linux-amd64.deb
 sudo dpkg -i hugo_extended_0.111.3_linux-amd64.deb

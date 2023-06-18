@@ -4,7 +4,7 @@ call plug#begin()
   Plug 'nvim-tree/nvim-web-devicons'
   Plug 'nvim-lualine/lualine.nvim'
   Plug 'cohama/lexima.vim'
-  Plug 'goolord/alpha-nvim'
+"  Plug 'goolord/alpha-nvim'
   Plug 'akinsho/toggleterm.nvim'
   Plug 'lambdalisue/fern.vim'
   Plug 'lambdalisue/nerdfont.vim'
@@ -12,14 +12,50 @@ call plug#begin()
   Plug 'lambdalisue/fern-renderer-nerdfont.vim'
   Plug 'lambdalisue/fern-git-status.vim'
   Plug 'lukas-reineke/indent-blankline.nvim'
+  Plug 'github/copilot.vim'
+  Plug 'mfussenegger/nvim-dap'
+  Plug 'rcarriga/nvim-dap-ui'
+  Plug 'leoluz/nvim-dap-go'
+  Plug 'rmagatti/auto-session'
 call plug#end()
+
+"auto-session setup
+lua << END
+require("auto-session").setup {
+  log_level = "error",
+  auto_session_suppress_dirs = { "~/", "~/Projects", "~/Downloads", "/"},
+}
+END
+
+" dap setup
+lua << END
+local dap = require('dap')
+vim.api.nvim_set_keymap('n', '<F5>', ':DapContinue<CR>', { silent = true })
+vim.api.nvim_set_keymap('n', '<F10>', ':DapStepOver<CR>', { silent = true })
+vim.api.nvim_set_keymap('n', '<F11>', ':DapStepInto<CR>', { silent = true })
+vim.api.nvim_set_keymap('n', '<F12>', ':DapStepOut<CR>', { silent = true })
+vim.api.nvim_set_keymap('n', '<leader>b', ':DapToggleBreakpoint<CR>', { silent = true })
+vim.api.nvim_set_keymap('n', '<leader>B', ':lua require("dap").set_breakpoint(nil, nil, vim.fn.input("Breakpoint condition: "))<CR>', { silent = true })
+vim.api.nvim_set_keymap('n', '<leader>lp', ':lua require("dap").set_breakpoint(nil, nil, vim.fn.input("Log point message: "))<CR>', { silent = true })
+vim.api.nvim_set_keymap('n', '<leader>dr', ':lua require("dap").repl.open()<CR>', { silent = true })
+vim.api.nvim_set_keymap('n', '<leader>dl', ':lua require("dap").run_last()<CR>', { silent = true })
+END
+
+" dap-ui setup
+lua << END
+require("dapui").setup()
+vim.api.nvim_set_keymap('n', '<leader>d', ':lua require("dapui").toggle()<CR>', {})
+END
+
+" dap-go setup
+lua require('dap-go').setup()
 
 " Fern setting
 let g:fern#default_hidden=1
 let g:fern#renderer = "nerdfont"
 
 " alpha-nvim setup
-lua require'alpha'.setup(require'alpha.themes.dashboard'.config)
+" lua require'alpha'.setup(require'alpha.themes.dashboard'.config)
 
 " toggleterm setup
 lua << END

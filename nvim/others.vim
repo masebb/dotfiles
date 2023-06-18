@@ -1,9 +1,9 @@
 set number
-cd ~/
 " スペース
 set expandtab
 set tabstop=2
 set shiftwidth=2
+let mapleader = "\\"
 " terminalモード離脱をescに、esc*2でターミナルでesc
 tnoremap <ESC> <c-\><c-n><Plug>(esc)
 nnoremap <Plug>(esc)<ESC> i<ESC>
@@ -25,3 +25,8 @@ cnoremap <C-S>V <C-r>+
 
 " ターミナルを開いたらに常にinsertモードに入る
 autocmd  TermOpen  * :startinsert
+
+" クリップボード共有
+set clipboard&
+set clipboard^=unnamedplus
+
