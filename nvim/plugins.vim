@@ -17,6 +17,7 @@ call plug#begin()
   Plug 'rcarriga/nvim-dap-ui'
   Plug 'leoluz/nvim-dap-go'
   Plug 'rmagatti/auto-session'
+  Plug 'pearofducks/ansible-vim'
 call plug#end()
 
 "auto-session setup
