@@ -1,4 +1,13 @@
 #!/bin/bash
+
+if [ `id -u` -ne 0 ]; then
+  echo "Please run on root"
+  exit 1
+fi
+set -e
+
+apt update
+apt upgrade
 #ツールインストール
 apt install -y tree docker.io docker-compose sipcalc jq traceroute bat
 # 重いツール TODO 選択制にする
