@@ -14,7 +14,7 @@ apt install -y tree docker.io docker-compose sipcalc jq traceroute bat
 apt install -y ffmpeg
 #lsd
 wget https://github.com/lsd-rs/lsd/releases/download/0.23.0/lsd-musl_0.23.0_amd64.deb
-dpkg -i lsd_0.23.1_amd64.deb
+dpkg -i lsd_musl_0.23.0_amd64.deb
 rm lsd_0.23.1_amd64.deb
 # hugo
 wget https://github.com/gohugoio/hugo/releases/download/v0.111.3/hugo_extended_0.111.3_linux-amd64.deb
