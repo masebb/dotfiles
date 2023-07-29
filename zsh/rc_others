@@ -14,14 +14,3 @@ setopt hist_ignore_dups
 
 # gitでgpgを使うための設定
 export GPG_TTY=$(tty)
-
-lg(){
-  export LAZYGIT_NEW_DIR_FILE=~/.lazygit/newdir
-
-  lazygit "$@"
-
-  if [ -f $LAZYGIT_NEW_DIR_FILE ]; then
-    cd "$(cat $LAZYGIT_NEW_DIR_FILE)"
-    rm -f $LAZYGIT_NEW_DIR_FILE > /dev/null
-  fi
-}

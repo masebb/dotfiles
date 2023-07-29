@@ -54,6 +54,10 @@ curl -fsSL https://cli.github.com/packages/githubcli-archive-keyring.gpg | sudo 
 && sudo apt update \
 && sudo apt install gh -y
 
+# nodejs(20.x)
+curl -fsSL https://deb.nodesource.com/setup_20.x | sudo -E bash - &&\
+sudo apt-get install -y nodejs
+
 #依存インストール
 sudo apt install -y zsh cargo libssl-dev pkg-config trash-cli
 cargo install sheldon
