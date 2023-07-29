@@ -19,18 +19,21 @@ rm lsd-musl_0.23.0_amd64.deb
 # hugo
 wget https://github.com/gohugoio/hugo/releases/download/v0.111.3/hugo_extended_0.111.3_linux-amd64.deb
 sudo dpkg -i hugo_extended_0.111.3_linux-amd64.deb
+rm hugo_extended_0.111.3_linux-amd64.deb
 # minikube
 curl -LO https://storage.googleapis.com/minikube/releases/latest/minikube_latest_amd64.deb
 sudo dpkg -i minikube_latest_amd64.deb
+rm minikube_latest_amd64.deb
 # neovim
 add-apt-repository ppa:neovim-ppa/stable
 apt-get update
-apt-get install neovim
+apt-get install -y neovim
 # lazygit
 LAZYGIT_VERSION=$(curl -s "https://api.github.com/repos/jesseduffield/lazygit/releases/latest" | grep -Po '"tag_name": "v\K[^"]*')
 curl -Lo lazygit.tar.gz "https://github.com/jesseduffield/lazygit/releases/latest/download/lazygit_${LAZYGIT_VERSION}_Linux_x86_64.tar.gz"
 tar xf lazygit.tar.gz lazygit
 install lazygit /usr/local/bin
+rm lazygit_${LAZYGIT_VERSION}_Linux_x86_64.tar.gz
 # ghインストール
 type -p curl >/dev/null || (sudo apt update && sudo apt install curl -y)
 curl -fsSL https://cli.github.com/packages/githubcli-archive-keyring.gpg | sudo dd of=/usr/share/keyrings/githubcli-archive-keyring.gpg \
