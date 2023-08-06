@@ -31,9 +31,10 @@ sudo dpkg -i minikube_latest_amd64.deb
 rm minikube_latest_amd64.deb
 
 # neovim
-sudo add-apt-repository ppa:neovim-ppa/stable
-sudo apt-get update
-sudo apt-get install -y neovim
+
+sudo curl https://github.com/neovim/neovim/releases/latest/download/nvim.appimage \
+      -Lo /usr/local/bin/nvim --create-dirs
+sudo chmod a+x /usr/local/bin/nvim
 
 ## vim-plug
 curl -fLo ~/.var/app/io.neovim.nvim/data/nvim/site/autoload/plug.vim --create-dirs \
@@ -63,5 +64,6 @@ sudo apt install -y zsh cargo libssl-dev pkg-config trash-cli
 cargo install sheldon
 
 #セットアップ
+sudo usermod -aG docker masetaiyo
 chsh -s $(which zsh)
 ~/.cargo/bin/sheldon init --shell zsh
