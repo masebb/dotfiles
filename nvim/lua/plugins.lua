@@ -5,8 +5,10 @@ require("lazy").setup({
   "cohama/lexima.vim",
   "rcarriga/nvim-notify",
   "folke/tokyonight.nvim",
+  "github/copilot.vim",
   {
   "nvim-treesitter/nvim-treesitter",
+    commit = "ae88851",
     config = function(_, opts)
       require"nvim-treesitter.configs".setup(opts)
     end,
@@ -101,9 +103,10 @@ require("lazy").setup({
     config = function(_, opts)
       require"aerial".setup(
         {
+          default_direction = "float",
           autojump = true,
           layout = {
-            width = 30
+            width = 20
           },
           filter_kind = {
             "Class",
@@ -116,12 +119,7 @@ require("lazy").setup({
             "Struct",
             "Variable"
           },
-          open_automatic = function(bufnr)
-            local aerial = require"aerial"
-            return vim.api.nvim_buf_line_count(bufnr) > 80
-              and aerial.num_symbols(bufnr) > 4
-              and not aerial.was_closed()
-          end
+          highlight_on_jump = 300,
         }
       )
     end,
@@ -150,7 +148,7 @@ require("lazy").setup({
     config = function (_, opts)
       require("lualine").setup(opts)
     end,
-    dependencies = { 
+    dependencies = {
       "nvim-tree/nvim-web-devicons"
     }
   },
@@ -167,5 +165,32 @@ require("lazy").setup({
   {
   "akinsho/toggleterm.nvim",
     config = true
-  }
+  },
+  {
+  'nvimdev/lspsaga.nvim',
+    config = function()
+      require'lspsaga'.setup({})
+    end,
+    dependencies = {
+      "neovim/nvim-lspconfig",
+      'nvim-treesitter/nvim-treesitter',
+      'nvim-tree/nvim-web-devicons',
+    },
+  },
+  "mfussenegger/nvim-dap",
+  {
+  "rcarriga/nvim-dap-ui",
+    config = true,
+    dependencies = {
+      "mfussenegger/nvim-dap"
+    }
+  },{
+  "theHamsta/nvim-dap-virtual-text",
+    config = true,
+    dependencies = {
+      "mfussenegger/nvim-dap",
+      "nvim-treesitter/nvim-treesitter"
+    }
+  },
+  "folke/neodev.nvim",
 })
