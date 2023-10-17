@@ -30,6 +30,10 @@ curl -LO https://storage.googleapis.com/minikube/releases/latest/minikube_latest
 sudo dpkg -i minikube_latest_amd64.deb
 rm minikube_latest_amd64.deb
 
+# ansible
+sudo apt-add-repository --yes --update ppa:ansible/ansible
+sudo apt install -y ansible
+
 # neovim
 
 sudo curl https://github.com/neovim/neovim/releases/latest/download/nvim.appimage \
