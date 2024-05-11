@@ -3,9 +3,9 @@ require("lazy").setup({
   "nvim-tree/nvim-web-devicons",
   "onsails/lspkind.nvim",
   "cohama/lexima.vim",
-  "rcarriga/nvim-notify",
   "folke/tokyonight.nvim",
   "github/copilot.vim",
+  "RRethy/vim-illuminate",
   {
   "nvim-treesitter/nvim-treesitter",
     commit = "ae88851",
@@ -108,17 +108,7 @@ require("lazy").setup({
           layout = {
             width = 20
           },
-          filter_kind = {
-            "Class",
-            "Constructor",
-            "Enum",
-            "Function",
-            "Interface",
-            "Module",
-            "Method",
-            "Struct",
-            "Variable"
-          },
+          filter_kind = false,
           highlight_on_jump = 300,
         }
       )
@@ -142,11 +132,12 @@ require("lazy").setup({
   "neovim/nvim-lspconfig",
   {
   "nvim-lualine/lualine.nvim",
-    opts = {
-      theme = "molokai"
-    },
-    config = function (_, opts)
-      require("lualine").setup(opts)
+    config = function ()
+      require("lualine").setup({
+        options = {
+          theme = "auto"
+        },
+      })
     end,
     dependencies = {
       "nvim-tree/nvim-web-devicons"
@@ -161,6 +152,18 @@ require("lazy").setup({
     dependencies={
       "nvim-tree/nvim-web-devicons"
     }
+  },
+  {
+  "j-hui/fidget.nvim",
+    config = function()
+      require"fidget".setup({
+        integration = {
+          ["nvim-tree"] = {
+            enable = false,
+          },
+        },
+      })
+    end
   },
   {
   "akinsho/toggleterm.nvim",
@@ -196,5 +199,13 @@ require("lazy").setup({
   {
   "lewis6991/gitsigns.nvim",
     config = true
-  }
+  },
+  "nvim-lua/plenary.nvim",
+  {
+    "kdheepak/lazygit.nvim",
+      -- optional for floating window border decoration
+      dependencies = {
+        "nvim-lua/plenary.nvim",
+      },
+    },
 })

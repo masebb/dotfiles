@@ -1,5 +1,5 @@
 # PATH
-PATH="$PATH:$HOME/.cargo/bin/:$HOME/go/bin/"
+PATH="$PATH:$HOME/.cargo/bin/:$HOME/go/bin/:$HOME/.local/bin:/usr/local/bin/gcc-arm-none-eabi-4_9-2015q3/bin"
 # 履歴ファイルの保存先
 export HISTFILE=${HOME}/.zsh_history
 

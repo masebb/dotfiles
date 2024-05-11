@@ -10,10 +10,13 @@ sudo apt update
 sudo apt upgrade
 
 #ツールインストール
-sudo apt install -y tree docker.io docker-compose sipcalc jq traceroute bat
+sudo apt install -y tree docker.io docker-compose sipcalc jq traceroute bat iperf3 mtr fzf
 
 # 重いツール TODO 選択制にする
 sudo apt install -y ffmpeg
+
+# TODO 手動インストールのツールのバーしょん決め打ちするな
+
 
 # lsd install
 wget https://github.com/lsd-rs/lsd/releases/download/0.23.0/lsd-musl_0.23.0_amd64.deb
@@ -21,9 +24,9 @@ sudo dpkg -i lsd-musl_0.23.0_amd64.deb
 rm lsd-musl_0.23.0_amd64.deb
 
 # hugo
-wget https://github.com/gohugoio/hugo/releases/download/v0.111.3/hugo_extended_0.111.3_linux-amd64.deb
-sudo dpkg -i hugo_extended_0.111.3_linux-amd64.deb
-rm hugo_extended_0.111.3_linux-amd64.deb
+wget https://github.com/gohugoio/hugo/releases/download/v0.119.0/hugo_extended_0.119.0_linux-amd64.deb
+sudo dpkg -i hugo_extended_0.119.0_linux-amd64.deb
+rm hugo_extended_0.119.0_linux-amd64.deb
 
 # minikube
 curl -LO https://storage.googleapis.com/minikube/releases/latest/minikube_latest_amd64.deb

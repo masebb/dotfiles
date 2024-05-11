@@ -14,12 +14,7 @@ vim.keymap.set("n", "<space>e", function() api.tree.toggle() end)
 vim.keymap.set('n', '<space>d', function() require('dapui').toggle() end)
 
 -- lazygitを<space>gで起動
-local lg = require("toggleterm.terminal").Terminal:new{
-  cmd = "lazygit",
-  direction = "float",
-  hidden = true
-}
-vim.keymap.set("n", "<space>g", function() lg:toggle() end )
+vim.keymap.set("n", "<space>g", "<cmd>LazyGit<CR>")
 
 -- ターミナルを<space>tで起動
 local terminal = require("toggleterm.terminal").Terminal:new{
@@ -99,4 +94,16 @@ vim.api.nvim_create_autocmd('LspAttach', {
     end, opts)
   end,
 })
+-- LSPsagaのキーマップ
+vim.keymap.set("n", "K",  "<cmd>Lspsaga hover_doc<CR>")
+vim.keymap.set('n', 'gr', '<cmd>Lspsaga lsp_finder<CR>')
+vim.keymap.set("n", "gd", "<cmd>Lspsaga peek_definition<CR>")
+vim.keymap.set("n", "ga", "<cmd>Lspsaga code_action<CR>")
+vim.keymap.set("n", "gn", "<cmd>Lspsaga rename<CR>")
+vim.keymap.set("n", "ge", "<cmd>Lspsaga show_line_diagnostics<CR>")
+vim.keymap.set("n", "[e", "<cmd>Lspsaga diagnostic_jump_next<CR>")
+vim.keymap.set("n", "]e", "<cmd>Lspsaga diagnostic_jump_prev<CR>")
 
+vim.keymap.set("n", "<A-d>", "<cmd>Lspsaga open_floaterm<CR>")
+-- vim.keymap.set("n", "<A-d>", "<cmd>Lspsaga open_floaterm lazygit<CR>")
+vim.keymap.set("t", "<A-d>", [[<C-\><C-n><cmd>Lspsaga close_floaterm<CR>]])

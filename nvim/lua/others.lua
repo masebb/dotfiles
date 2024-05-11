@@ -20,7 +20,6 @@ vim.cmd("cd ~")
 -- 起動時にnvim-treeを開くように
 vim.api.nvim_create_autocmd("VimEnter",{
   callback = function () require"nvim-tree.api".tree.open() end
-
 })
 
 -- nvim-dapのアイコン設定
@@ -54,7 +53,7 @@ require("mason-lspconfig").setup_handlers {
         "-clangd", "clangd"
       }
     })
-  end
+  end,
 }
 
 -- nvim-dapの設定
